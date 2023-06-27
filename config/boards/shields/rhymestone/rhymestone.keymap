@@ -65,7 +65,7 @@
 // |RGBMO|  HUE-  |   SAT-  |   VAL-  |     |   |       |       |         |        |         |
 // |     |        |         |         |     |   |       |       |         |        |         |    
                         bindings = <
- &bootloader     &bt BT_CLR      &ext_power EP_TOG  &none            &none       &none        &none        &kp KP_NUM   &kp INSERT   &kp PRINTSCREEN
+ &bootloader     &bt BT_CLR      &ext_power EP_TOG  &none            &kp H       &kp H        &none        &kp KP_NUM   &kp INSERT   &kp PRINTSCREEN
  &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI    &rgb_ug RGB_BRI  &none       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
  &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD    &rgb_ug RGB_BRD  &none       &none        &none        &none        &kp H        &rgb_ug RGB_COLOR_HSB(128,100,100)       
  &none           &none           &trans             &trans           &none       &none        &trans       &trans       &none        &to 0
