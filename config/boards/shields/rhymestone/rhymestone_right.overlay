@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2021 Caiden Block
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "rhymestone.dtsi"
+
+&default_transform {
+	col-offset = <5>;
+};
+
+&kscan0 {
+	col-gpios
+		= <&pro_micro_d 4 GPIO_ACTIVE_HIGH>
+		, <&pro_micro_d 5 GPIO_ACTIVE_HIGH>
+		, <&pro_micro_d 6 GPIO_ACTIVE_HIGH>
+		, <&pro_micro_d 7 GPIO_ACTIVE_HIGH>
+		, <&pro_micro_d 8 GPIO_ACTIVE_HIGH>
+		;
+};

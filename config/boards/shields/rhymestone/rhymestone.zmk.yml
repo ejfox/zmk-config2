@@ -1,0 +1,12 @@
+file_format: "1"
+id: rhymestone
+name: Rhymestone
+type: shield
+url: 
+requires: [pro_micro]
+features:
+  - keys
+  - underglow
+siblings:
+  - rhymestone_left
+  - rhymestone_right

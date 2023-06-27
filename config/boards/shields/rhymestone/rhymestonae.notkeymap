@@ -1,0 +1,64 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
+/ {
+       keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+// -------------------------------------------------------------------------------------
+// |   Q   |   W   |   E   |   R   |   T   |   |   Y   |   U   |   I   |   O   |   P   |
+// |   A   |   S   |   D   |   F   |   G   |   |   H   |   J   |   K   |   L   | ENTER |
+// | SFT Z |   X   |   C   |   V   |   B   |   |   N   |   M   |   ,   |   .   | SFT / |
+// | LCTRL |  LALT |  LGUI | LOWER |  BKSP |   | SPACE | RAISE |  RGUI |  APP  | RCTRL |
+                        bindings = <
+   &kp Q        &kp W    &kp E    &kp R &kp T      &kp Y     &kp U  &kp I     &kp O   &kp P    
+   &kp A        &kp S    &kp D    &kp F &kp G      &kp H     &kp J  &kp K     &kp L   &kp ENTER 
+   &mt LSHIFT Z &kp X    &kp C    &kp V &kp B      &kp N     &kp M  &kp COMMA &kp DOT &mt RSHIFT SLASH 
+   &kp LCTRL    &kp LALT &kp LGUI &mo 1 &kp BSPC   &kp SPACE &mo 2  &kp RGUI  &kp RCTRL &kp RCTRL
+                        >;
+                };
+                lower_layer {
+// -----------------------------------------------------------------------------------------
+// | F1  | F2  | F3  | F4  | F5  |   | MIN | EQL |  [  |  ]  |  \  |
+// | F6  | F7  | F8  | F9  | F10 |   |     |     |     |  ;  |QUOTE| 
+// | F11 | F12 | ESC | TAB | LALT|   | DEL |     |     |  RO | GRAVE / SHIFT |
+// |     |     |     |LOWER| BSP |   |     | AJST|     |     |     |   
+                        bindings = <
+   &kp F1         &kp F2    &kp F3    &kp F4  &kp F5        &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT   &kp BSLH    
+   &kp F6         &kp F7    &kp F8    &kp F9  &kp F10       &none     &none     &none     &kp SEMI   &kp ENTER 
+   &mt LSHIFT F11 &kp F12   &kp ESC   &kp TAB &kp LA(GRAVE) &kp DEL   &none     &none     &kp INT_RO &mt RSHIFT GRAVE 
+   &trans         &trans    &trans    &trans  &kp BSPC      &trans    &mo 3     &trans    &trans     &trans 
+    >;
+                };
+                       
+                raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+// |SHIFT|     |     |     |     |   | LFT | DWN |  UP | RGT |SHIFT|
+// |BTCLR| BT0 | BT1 | BT2 | BT3 |   |MINUS|  RO |COMMA| DOT |SLASH|
+// |     |     |     | AJST|     |   |     |     |     |     |     |
+                        bindings = <
+&kp N1     &kp N2       &kp N3       &kp N4       &kp N5            &kp N6    &kp N7     &kp N8     &kp N9    &kp N0 
+&kp LSHIFT &none        &none        &none        &none             &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT &kp RSHIFT 
+&none      &none        &none        &none        &none             &kp MINUS &kp INT_RO &kp COMMA  &kp DOT   &kp FSLH          
+&trans     &trans       &trans       &mo 3        &trans            &trans    &trans     &trans     &trans    &trans 
+                        >;
+                };
+                adjust_layer {
+// -----------------------------------------------------------------------------------------
+// |RESET| BT CLR | EP TOG  |         |     |   |       |       | NUMLOCK | INSERT | PRTSCRN |   
+// |RGBTO|  HUE+  |   SAT+  |   VAL+  |     |   | BT 0  | BT 1  |  BT 2   |  BT 3  | BT 4
+// |RGBMO|  HUE-  |   SAT-  |   VAL-  |     |   |       |       |         |        |         |
+// |     |        |         |         |     |   |       |       |         |        |         |    
+                        bindings = <
+ &bootloader     &bt BT_CLR   &ext_power EP_TOG  &none            &none       &none        &none        &kp KP_NUM   &kp INSERT   &kp PRINTSCREEN
+ &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI  &none       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+ &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD  &none       &none        &none        &none        &none        &none        
+ &none           &none           &none           &trans           &none       &none        &trans       &none        &none        &none  
+                        >;
+                };
+        };
+};

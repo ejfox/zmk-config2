@@ -1,0 +1,75 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+        keymap {
+                compatible = "zmk,keymap";
+
+                default_layer {
+// -------------------------------------------------------------------------------------
+// |   Q   |   W   |   F   |   P   |   B   |   |   J   |   L   |   U   |   Y   |   '   |
+// |   A   |   R   |   S   |   T   |   G   |   |   M   |   N   |   E   |   I   |   O   |
+// |   Z   |   X   |   C   |   D   |   V   |   |   K   |   H   |   ,   |   .   |   /   |
+// |  TAB  |       | LOWER |       |  BKSP |   | SPACE | ENTER | RAISE |       |  ESC  |
+                        bindings = <
+&kp Q       &kp W      &kp F       &kp P        &kp B       &kp J     &kp L       &kp U       &kp Y      &kp ESC   
+&hm LGUI A  &hm LALT R &hm LSHIFT S &hm LCTRL T &kp G       &kp M    &hm RCTRL N &hm RSHIFT E &hm RALT I &hm RGUI O
+&kp Z       &kp X      &kp C       &kp D        &kp V       &kp K     &kp H       &kp COMMA   &kp DOT    &kp FSLH
+&kp TAB     &none      &mo 1       &kp BSPC     &kp SPACE   &kp SPACE &kp RET     &mo 2       &kp SEMI     &kp APOS
+                        >;
+                };
+                lower_layer {
+// -----------------------------------------------------------------------------------------
+// | F1  | F2  | F3  | F4  | F5  |   | MIN | EQL |  [  |  ]  |  \  |
+// | F6  | F7  | F8  | F9  | F10 |   |     |     |     |  ;  |QUOTE| 
+// | F11 | F12 |     |     | DEL |   |     |     |     |     |GRAVE|
+// |     |     |LOWER|     |     |   |     |     | AJST|     |     |   
+                        bindings = <
+   &kp F1   &kp F2    &kp F3    &kp F4  &kp F5        &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT   &kp BSLH    
+   &kp F6   &kp F7    &kp F8    &kp F9  &kp F10       &none     &none     &none     &kp SEMI   &kp ENTER 
+   &kp F11  &kp F12   &none     &none   &kp DEL       &none     &none     &none     &tog 3     &kp GRAVE 
+   &trans   &trans    &trans    &trans  &trans        &trans    &trans    &trans    &trans     &trans 
+                        >;
+                };      
+                raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+// |     |     |     |     |     |   |     |  UP |     |     |     |
+// |SHIFT|     |     |     |     |   | LFT | DWN | RGT |     |SHIFT|
+// | CTRL|     | AJST|     |     |   |     |     |     |     |     |
+                        bindings = <
+&kp N1     &kp N2       &kp N3       &kp N4       &kp N5            &kp N6    &kp N7     &kp N8     &kp N9    &kp N0 
+&none      &none        &none        &none        &none             &none     &kp UP     &none      &none     &none 
+&kp LSHIFT &none        &none        &none        &none             &kp LEFT  &kp DOWN   &kp RIGHT  &none     &kp RSHIFT          
+&kp LCTRL  &trans       &trans       &trans       &trans            &trans    &trans     &trans     &trans    &trans 
+                        >;
+                };
+                adjust_layer {
+// -----------------------------------------------------------------------------------------
+// |RESET| BT CLR | EP TOG  |         |     |   |       |       | NUMLOCK | INSERT | PRTSCRN |   
+// |RGBTO|  HUE+  |   SAT+  |   VAL+  |     |   | BT 0  | BT 1  |  BT 2   |  BT 3  | BT 4    |
+// |RGBMO|  HUE-  |   SAT-  |   VAL-  |     |   |       |       |         |        |         |
+// |     |        |         |         |     |   |       |       |         |        |         |    
+                        bindings = <
+ &bootloader     &bt BT_CLR      &ext_power EP_TOG  &none            &none       &none        &none        &kp KP_NUM   &kp INSERT   &kp PRINTSCREEN
+ &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI    &rgb_ug RGB_BRI  &none       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+ &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD    &rgb_ug RGB_BRD  &none       &none        &none        &none         &none        &kp H        
+ &none           &none           &trans             &trans           &none       &none        &trans       &trans        &none        &to 0
+                        >;
+                };
+        };
+};

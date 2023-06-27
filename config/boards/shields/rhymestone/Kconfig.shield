@@ -1,0 +1,8 @@
+# Copyright (c) 2021 Caiden Block
+# SPDX-License-Identifier: MIT
+
+config SHIELD_RHYMESTONE_LEFT
+	def_bool $(shields_list_contains,rhymestone_left)
+
+config SHIELD_RHYMESTONE_RIGHT
+	def_bool $(shields_list_contains,rhymestone_right)
