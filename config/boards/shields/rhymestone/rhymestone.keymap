@@ -65,7 +65,7 @@
 &kp LSHIFT &none        &none        &none        &none             &kp LEFT  &kp DOWN   &kp RIGHT  &none     &kp RSHIFT          
 &kp LCTRL  &trans       &mo AJST     &trans       &trans            &trans    &trans     &trans     &trans    &trans 
                         >;
-                };                                                   g                                                  
+                };
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
 // |RESET| BT CLR | EP TOG  |         |     |   |       |       | NUMLOCK | INSERT | PRTSCRN |   
