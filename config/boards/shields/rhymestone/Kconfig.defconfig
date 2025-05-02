@@ -1,7 +1,7 @@
 if SHIELD_RHYMESTONE_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "Rhymestone"
+	default "Rhyme"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
@@ -11,7 +11,7 @@ endif
 if SHIELD_RHYMESTONE_RIGHT
 
 config ZMK_KEYBOARD_NAME
-	default "Rhymestone Right"
+	default "Rhyme R"
 	
 endif
 
